@@ -1,0 +1,98 @@
+<div class="loginPage" ng-controller="loginFormCtrl">
+	<div class="container clearfix">
+		<div class="pull-left blue_moon">
+			<img src="../images/blue_moon.png">
+		</div>
+		<div class="pull-right login_body">
+			<div class="clearfix login_way">
+				<div class="pull-left col-sm-6 text-center">
+					<a href="#" class="red_col">会员登陆</a>
+				</div>
+				<div class="pull-right col-sm-6 text-center">
+					<a href="#">扫码登陆</a>
+				</div>
+			</div>
+			<form class="form-horizontal" name="loginForm" ng-submit="loginSubForm()">
+
+			  	<div class="form-group">
+			    	<label for="loginUser" class="col-sm-2 control-label">用户名</label>
+			    	<div class="col-sm-9">
+			    		<div class="input-group">
+			    			<span class="input-group-addon"><img src="../images/user.png"></span>
+			      			<input
+									type="text"
+									name="loginUserName"
+									class="form-control"
+									id="loginUser"
+									ng-model="loginUserData.loginUserName"
+									ng-pattern="/^([A-Za-z]|[\u4E00-\u9FA5])+$/"
+									ng-minlength="4"
+									ng-maxlength="10"
+									required
+							>
+			      		</div>
+			    	</div>
+			  	</div>
+
+			  	<div class="form-group">
+			    	<label for="loginPassword" class="col-sm-2 control-label">密码</label>
+			    	<div class="col-sm-9">
+			    		<div class="input-group">
+			    			<span class="input-group-addon"><img src="../images/lock.png"></span>
+			      			<input
+									type="password"
+									name="loginUserPwd"
+									class="form-control"
+									id="loginPassword"
+									ng-model="loginUserData.loginUserPwd"
+									ng-pattern="/^[A-Za-z]{1}[0-9A-Za-z_]{2,29}$/"
+									ng-minlength="6"
+									ng-maxlength="64"
+									required
+							>
+			      		</div>
+			    	</div>
+			  	</div>
+
+			  	<div class="form-group">
+				    <div class="col-sm-offset-2 col-sm-9 clearfix">
+				      	<div class="checkbox pull-left">
+				        	<label>
+				          	<input
+									type="checkbox"
+									name="loginAgree"
+									ng-model="loginUserData.loginAgree"> 记住密码
+				        	</label>
+				      	</div>
+				      	<div class="pull-right forget"><a href="#">忘记密码?</a></div>
+				    </div>
+			  	</div>
+
+			  	<div class="form-group">
+			    	<div class="col-sm-offset-2 col-sm-9">
+			      		<button
+								type="submit"
+								class="login_btn"
+								ng-disabled="loginForm.$invalid">
+							登&nbsp;&nbsp;陆
+						</button>
+			    	</div>
+			  	</div>
+			</form>
+			<div class="col-sm-offset-1 col-sm-10">
+				<div class="clearfix">
+					<p class="pull-left">合作网站账户登陆：</p>
+					<p class="pull-right">
+						<a ui-sref="register" class="user_register" href="#">用户免费注册</a>
+					</p>
+				</div>
+				<ul class="cooperation clearfix">
+					<li><a href="#"><img src="../images/qq.png"></a></li>
+					<li><a href="#"><img src="../images/micro_blog.png"></a></li>
+					<li><a href="#"><img src="../images/alipay.png"></a></li>
+					<li><a href="#"><img src="../images/wechat.png"></a></li>
+				</ul>
+			</div>
+		</div>
+	</div>
+</div>

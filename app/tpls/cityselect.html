@@ -1,0 +1,37 @@
+<div class="selectLocation">
+	<div>
+		<select 
+			class="btn btn-default"
+			ng-model="province" 
+			ng-change="changeProvince" 
+			ng-options="provinces.name for provinces in cityList">
+			<option value="">省</option>
+		</select>
+	</div>
+	<div>
+		<select 
+			class="btn btn-default"
+			ng-model="city"
+			ng-change="changeCity"
+			ng-options="citys.name for citys in province.child">
+			<option value="">市/区</option>
+		</select>
+	</div>
+	<div>
+		<select 
+			class="btn btn-default"
+			ng-model="county"
+			ng-change="changeCounty"
+			ng-options="countys.value for countys in city.child">
+			<option value="">县/区域</option>
+		</select>
+	</div>
+	<div class="col-sm-8 zero_left">
+		<input 
+			type="text" 
+			class="form-control"
+			ng-model="detailAddress"
+			placeholder="详细地址"
+			ng-disabled="province=='' || province==null">
+	</div>
+</div>

@@ -1,0 +1,252 @@
+<div class="registerPage">
+    <div class="container">
+        <div class="register_body">
+            <div class="register_way_do">
+                <div class="clearfix">
+                    <div class="pull-left">免费注册</div>
+                    <div class="pull-right">已有账户&nbsp;&nbsp;<a ui-sref="login" href="#">登&nbsp;&nbsp;陆</a></div>
+                </div>
+            </div>
+            <div class="register_content" ng-controller="registerCtrl">
+                <form class="form-horizontal" name="registerForm" ng-submit="registerSubForm()">
+
+                    <div
+                            class="form-group has-feedback"
+                            ng-class="{'has-success': registerForm.registerUserName.$valid }">
+
+                        <label
+                                for="registerUser"
+                                class="col-sm-3 control-label zero_right">
+                            会员名：
+                        </label>
+
+                        <div class="col-sm-4 zero_left">
+                            <input
+                                    type="text"
+                                    name="registerUserName"
+                                    class="form-control"
+                                    id="registerUser"
+                                    ng-model="registerUserData.registerUserName"
+                                    ng-pattern="/^([A-Za-z]|[\u4E00-\u9FA5])+$/"
+                                    ng-minlength="4"
+                                    ng-maxlength="10"
+                                    required
+                            >
+                            <div ng-if="registerForm.registerUserName.$valid">
+                                <span class="glyphicon glyphicon-ok form-control-feedback"></span>
+                            </div>
+                        </div>
+                        <div
+                                class="prompt_info col-sm-3"
+                                ng-messages="registerForm.registerUserName.$error"
+                                role="alert">
+                            <div class="text-muted" ng-message="required">*请输入中文、字母和字符组合</div>
+                            <div class="text-danger" ng-message="minlength">*用户名最小长度不足4位</div>
+                            <div class="text-danger" ng-message="maxlength">*用户名最大长度已超出10位</div>
+                            <div class="text-danger" ng-message="pattern">*不能以?!_数字开头，不能以?!.*?_$结尾</div>
+                        </div>
+                    </div>
+
+                    <div
+                            class="form-group has-feedback"
+                            ng-class="{'has-success': registerForm.registerUserPassword.$valid }">
+
+                        <label
+                                for="registerPassword"
+                                class="col-sm-3 control-label zero_right">
+                            密码：
+                        </label>
+
+                        <div class="col-sm-4 zero_left">
+                            <input
+                                    type="password"
+                                    name="registerUserPassword"
+                                    class="form-control"
+                                    id="registerPassword"
+                                    ng-model="registerUserData.registerUserPassword"
+                                    ng-pattern="/^[A-Za-z]{1}[0-9A-Za-z_]{2,29}$/"
+                                    ng-minlength="6"
+                                    ng-maxlength="64"
+                                    required
+                            >
+                            <div ng-if="registerForm.registerUserPassword.$valid">
+                                <span class="glyphicon glyphicon-ok form-control-feedback"></span>
+                            </div>
+                        </div>
+                        <div
+                                class="prompt_info col-sm-3"
+                                ng-messages="registerForm.registerUserPassword.$error"
+                                role="alert"
+                        >
+                            <div class="text-muted" ng-message="required">*6位以上字母组合，不区分大小写</div>
+                            <div class="text-danger" ng-message="minlength">*密码最小长度不足6位</div>
+                            <div class="text-danger" ng-message="maxlength">*密码最大长度已超出64位</div>
+                        </div>
+                    </div>
+
+                    <div
+                            class="form-group has-feedback"
+                            ng-class="{'has-success': registerForm.registerConfirmPwd.$valid }">
+
+                        <label
+                                for="registerConfirm"
+                                class="col-sm-3 control-label zero_right">
+                            确认密码：
+                        </label>
+
+                        <div class="col-sm-4 zero_left">
+                            <input
+                                    type="password"
+                                    name="registerConfirmPwd"
+                                    class="form-control"
+                                    id="registerConfirm"
+                                    ng-model="registerUserData.registerConfirmPwd"
+                                    compare-first="registerUserData.registerUserPassword"
+                                    ng-minlength="6"
+                                    ng-maxlength="64"
+                                    required
+                            >
+                            <div ng-if="registerForm.registerConfirmPwd.$valid">
+                                <span class="glyphicon glyphicon-ok form-control-feedback"></span>
+                            </div>
+                        </div>
+                        <div
+                                class="prompt_info col-sm-3"
+                                ng-messages="registerForm.registerConfirmPwd.$error"
+                                role="alert">
+                            <div class="text-muted" ng-message="required">*再次输入你的密码</div>
+                            <div class="text-danger" ng-message="compare">*两次密码输入不一致</div>
+                        </div>
+                    </div>
+
+                    <div
+                            class="form-group has-feedback"
+                            ng-class="{'has-success': registerForm.registerEmail.$valid }">
+
+                        <label
+                                for="registerEmailLine"
+                                class="col-sm-3 control-label zero_right">
+                            Email：
+                        </label>
+
+                        <div class="col-sm-4 zero_left">
+                            <input
+                                    type="email"
+                                    name="registerEmail"
+                                    class="form-control"
+                                    id="registerEmailLine"
+                                    ng-model="registerUserData.registerEmail"
+                                    ng-pattern="/^\w+([-+.]\w+)*@\w+([-.]\w+)*\.\w+([-.]\w+)*$/"
+                                    required
+                            >
+                            <div ng-if="registerForm.registerEmail.$valid">
+                                <span class="glyphicon glyphicon-ok form-control-feedback"></span>
+                            </div>
+                        </div>
+                        <div
+                                class="prompt_info col-sm-3"
+                                ng-messages="registerForm.registerEmail.$error"
+                                role="alert">
+                            <div class="text-muted" ng-message="required">*请输入你的邮箱</div>
+                            <div class="text-danger" ng-message="pattern">*邮箱格式不正确</div>
+                        </div>
+                    </div>
+
+                    <div
+                            class="form-group"
+                            ng-class="{'has-success': registerForm.registerMobile.$valid }">
+
+                        <label
+                                for="registerMobilePhone"
+                                class="col-sm-3 control-label zero_right">
+                            手机号：
+                        </label>
+
+                        <div class="col-sm-4 zero_left position_ok">
+                            <input
+                                    type="number"
+                                    name="registerMobile"
+                                    class="form-control"
+                                    id="registerMobilePhone"
+                                    ng-model="registerUserData.registerMobile"
+                                    ng-pattern="/^1[34578]\d{9}$/"
+                                    ng-minlength="11"
+                                    ng-maxlength="11"
+                                    required
+                            >
+                            <div ng-if="registerForm.registerMobile.$valid">
+                                <span class="glyphicon glyphicon-ok form-control-feedback"></span>
+                            </div>
+                        </div>
+                        <div
+                                class="prompt_info col-sm-3"
+                                ng-messages="registerForm.registerMobile.$error"
+                                role="alert">
+                            <div class="text-muted" ng-message="required">*请填写你的真实号码</div>
+                            <div class="text-danger" ng-message="minlength">*电话不能低于11位</div>
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <label class="col-sm-3 control-label zero_right">所在地：</label>
+                        <div class="col-sm-6 zero_left">
+                            <div cust-location ng-model="registerUserData.location"></div>
+                        </div>
+                    </div>
+
+                    <div
+                            class="form-group has-feedback"
+                            ng-class="{'has-success': registerForm.registerQrCode.$valid }"
+                    >
+                        <label for="location" class="col-sm-3 control-label zero_right">验证码：</label>
+                        <div class="col-sm-2 zero_left">
+                            <input
+                                    type="text"
+                                    name="registerQrCode"
+                                    class="form-control"
+                                    id="location"
+                                    ng-model="registerUserData.registerQrCode"
+                                    ng-minlength="4"
+                                    ng-maxlength="4"
+                                    required
+                            >
+                            <div ng-if="registerForm.registerQrCode.$valid">
+                                <span class="glyphicon glyphicon-ok form-control-feedback"></span>
+                            </div>
+                        </div>
+                        <div class="col-sm-2 zero_left clearfix padding_top">
+                            <div class="pull-left code_style">6548</div>
+                            <a href="#" class="pull-left switch_code">看不清，换一张</a>
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <div class="col-sm-offset-3 col-sm-4 clearfix zero_left">
+                            <div class="checkbox pull-left">
+                                <label>
+                                    <input
+                                            type="checkbox"
+                                            name="registerAgree"
+                                            ng-model="registerUserData.registerAgree">
+                                    我已阅读并同意&nbsp;&nbsp;<a href="#">用户服务协议</a>
+                                </label>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <div class="col-sm-offset-3 col-sm-4 zero_left">
+                            <button
+                                    type="submit"
+                                    class="register_btn"
+                                    ng-disabled="registerForm.$invalid"
+                            >
+                                注&nbsp;&nbsp;册
+                            </button>
+                        </div>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>

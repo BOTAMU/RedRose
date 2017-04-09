@@ -1,0 +1,233 @@
+<!DOCTYPE html>
+<html ng-app="redRose">
+<head lang="en">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>红玫瑰商城</title>
+</head>
+<body>
+
+<header class="header_body">
+    <div class="header_top">
+        <div class="container clearfix">
+            <div class="pull-left clearfix">
+                <div class="welcome pull-left">
+                    你好，欢迎光临<a ui-sref="home" href="">红玫瑰</a>商城！
+                </div>
+                <div class="dropdown my_dropdown pull-right">
+                    <button id="dLabel" type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                        我的消息（<span>2</span>）
+                        <span class="down_arrown"></span>
+                    </button>
+                    <ul class="dropdown-menu" aria-labelledby="dLabel">
+                        <li>呵呵</li>
+                        <li>哈哈</li>
+                        <li>嘻嘻</li>
+                    </ul>
+                </div>
+            </div>
+            <div class="pull-right clearfix">
+                <div class="menu_bar">
+                    <ul class="login clearfix">
+                        <li>请<a href="#" ui-sref="login">登陆</a></li>
+                        <li><a href="#" ui-sref="register">注册</a></li>
+                    </ul>
+                </div>
+                <div class="menu_bar">
+                    <div class="dropdown favorite pull-right">
+                        <button id="favorite" type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                            <span class="glyphicon glyphicon-star"></span> 收藏夹
+                            <span class="down_arrown"></span>
+                        </button>
+                        <ul class="dropdown-menu" aria-labelledby="favorite">
+                            <li>呵呵</li>
+                            <li>哈哈</li>
+                            <li>嘻嘻</li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="menu_bar">
+                    <div class="dropdown shopping_cart pull-right">
+                        <button id="shoppingCart" type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                            <span class="glyphicon glyphicon-shopping-cart"></span> 购物车 <span class="car_num">1</span>
+                            <span class="down_arrown"></span>
+                        </button>
+                        <ul class="dropdown-menu" aria-labelledby="shoppingCart">
+                            <li>呵呵</li>
+                            <li>哈哈</li>
+                            <li>嘻嘻</li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="menu_bar"><a href="#">帮助中心</a></div>
+            </div>
+        </div>
+    </div>
+    <div class="header_bottom">
+        <div class="bootom_search">
+            <div class="container clearfix">
+                <div class="logo pull-left">
+                    <img src="./images/logo.png" />
+                </div>
+                <div class="search_content pull-left">
+                    <div class="type_search">
+                        <ul class="clearfix">
+                            <li class="red_run">宝贝</li>
+                            <li>店铺</li>
+                        </ul>
+                    </div>
+                    <div class="search">
+                        <div class="searchBar">
+                            <form id="searchForm">
+                                <div class="searchTxt" id="searchTxt">
+                                    <input type="text" id="searchInput" placeholder="洁白如镜的立白洗衣液">
+                                    <span class="search_logo"></span>
+                                </div>
+                                <div class="searchBtn">
+                                    <input type="submit" value="搜索">
+                                </div>
+                            </form>
+                        </div>
+                    </div>
+                    <div class="hot_search">
+                        <ul class="clearfix">
+                            <li><a href="#">立白洗衣液</a></li>
+                            <li class="red_index"><a href="#">漂白剂</a></li>
+                            <li><a href="#">地毯除渍剂</a></li>
+                            <li class="red_index"><a href="#">除油剂</a></li>
+                            <li><a href="#">洗手液</a></li>
+                        </ul>
+                    </div>
+                </div>
+                <a href="" class="car pull-left" ui-sref="shopcart">
+                    <div class="car_logo"><img src="./images/car.png" /><span class="badge">0</span></div>
+                    <div class="join_to_car">
+                        <span>加入购物车</span>
+                    </div>
+                </a>
+            </div>
+        </div>
+        <div class="bootom_nav">
+            <div class="container clearfix">
+                <div class="left_nav pull-left">
+                    <div class="left_nav_tit"><span class="glyphicon glyphicon-th-list"></span> 商品分类</div>
+                </div>
+                <div class="level_nav pull-left">
+                    <ul class="nav_ul">
+                        <li class="nav_on"><a href="#" ui-sref="home">首页</a></li>
+                        <li><a href="#">热门产品</a></li>
+                        <li><a href="#">强力洗衣液</a></li>
+                        <li><a href="#">洁厕精</a></li>
+                        <li><a href="#">汽车洗涤产品</a></li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+</header>
+
+<div ui-view></div>
+
+<footer class="footer">
+    <div class="bootom1">
+        <div class="container pat">
+            <div class="col-md-3 clearfix">
+                <div class="pull-left">
+                    <div class="word_size">优</div>
+                </div>
+                <div class="pull-left word_com">
+                    <h4>品质保障</h4>
+                    <span>品质护航 购物无忧</span>
+                </div>
+            </div>
+            <div class="col-md-3 clearfix">
+                <div class="pull-left">
+                    <div class="word_size">七</div>
+                </div>
+                <div class="pull-left word_com">
+                    <h4>七天无理由退换货</h4>
+                    <span>为你提供售后无忧保障</span>
+                </div>
+            </div>
+            <div class="col-md-3 clearfix">
+                <div class="pull-left">
+                    <div class="word_size">特</div>
+                </div>
+                <div class="pull-left word_com">
+                    <h4>特色服务体验</h4>
+                    <span>呈现不一样的购物体验</span>
+                </div>
+            </div>
+            <div class="col-md-3 clearfix">
+                <div class="pull-left">
+                    <div class="word_size">帮</div>
+                </div>
+                <div class="pull-left word_com">
+                    <h4>帮助中心</h4>
+                    <span>你的购物指南</span>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="bootom2">
+        <div class="container pat">
+            <div class="col-md-2 col-md-offset-1">
+                <span>新手指南</span>
+                <ul>
+                    <li><a href="#">注册登录</a></li>
+                    <li><a href="#">选购商品</a></li>
+                    <li><a href="#">联系方式</a></li>
+                    <li><a href="#">常见问题</a></li>
+                </ul>
+            </div>
+            <div class="col-md-2">
+                <span>红玫瑰保障</span>
+                <ul>
+                    <li><a href="#">发票保障</a></li>
+                    <li><a href="#">售后规则</a></li>
+                    <li><a href="#">联系方式</a></li>
+                </ul>
+            </div>
+            <div class="col-md-2">
+                <span>支付方式</span>
+                <ul>
+                    <li><a href="#">快捷支付</a></li>
+                    <li><a href="#">微信支付</a></li>
+                    <li><a href="#">货到付款</a></li>
+                    <li><a href="#">银联支付</a></li>
+                </ul>
+            </div>
+            <div class="col-md-2">
+                <span>商家服务</span>
+                <ul>
+                    <li><a href="#">商家入驻</a></li>
+                    <li><a href="#">商家中心</a></li>
+                    <li><a href="#">物流服务</a></li>
+                    <li><a href="#">运营服务</a></li>
+                </ul>
+            </div>
+            <div class="col-md-2">
+                <span>售后服务</span>
+                <ul>
+                    <li><a href="#">退货政策</a></li>
+                    <li><a href="#">退货流程</a></li>
+                    <li><a href="#">退款说明</a></li>
+                    <li><a href="#">联系客服</a></li>
+                </ul>
+            </div>
+        </div>
+    </div>
+    <div class="bottom3">
+        <div class="container">
+            <div class="text-center">
+                <p><a href="#">关于玫瑰</a>—<a href="#">公司简介</a>—<a href="#">联系方法</a>—<a href="#">友情链接</a>—<a href="#">招聘信息</a>—<a href="#">客户服务</a>—<a href="#">隐私政策</a>—<a href="#">网络营销</a>—<a href="#">网站地图</a>—<a href="#">红玫瑰网</a></p>
+                <p><span class="timg"></span> 浙公网安备  365280000000000号 增值电信业务经营许可证：浙 B6-5555555-3 网络文化经营许可证：浙网文【555555-066B号】</p>
+                <p>红玫瑰商城版权所有© 2000-2016</p>
+            </div>
+        </div>
+    </div>
+</footer>
+
+</body>
+</html>

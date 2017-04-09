@@ -1,0 +1,135 @@
+<div class="shopcart" ng-controller="shopCartCtrl">
+    <div class="container">
+        <div class="all_shop">
+            <table class="table table-responsive">
+                <thead>
+                <tr>
+                    <th class="text_left">
+                        <label>
+                            <input type="checkbox"
+                                   ng-click="checkAll()"
+                                   ng-model="all"/> 全选
+                        </label>
+                    </th>
+                    <th>商品信息</th>
+                    <th>单价（元）</th>
+                    <th>数量</th>
+                    <th>小计（元）</th>
+                    <th>操作</th>
+                </tr>
+                </thead>
+                <tbody>
+                <tr ng-repeat="data in goodsList">
+                    <td class="text_left clearfix">
+
+                        <input class="pull-left shop_check"
+                               type="checkbox"
+                               ng-model="data.check"/>
+
+                        <a href="" class="shop_img pull-left">
+                            <img ng-src="{{data.image}}"/>
+                        </a>
+                    </td>
+                    <td class="text_left">
+                        <p ng-bind="data.info1"></p>
+                        <p ng-bind="data.info2"></p>
+                    </td>
+                    <td>
+                        <p>￥<span ng-bind="data.price1"></span></p>
+                        <p class="out_line">￥<span ng-bind="data.price2"></span></p>
+                    </td>
+                    <td class="number">
+                        <div class="num_body clearfix">
+
+                            <button type="button"
+                                    name="reducebtn"
+                                    class="disabled_this pull-left"
+                                    ng-click="reduceNum($index)">-
+                            </button>
+
+                            <input class="pull-left"
+                                   type="text"
+                                   ng-model="data.count"
+                                   ng-change="change($index)"
+                            />
+                            <button class="pull-left"
+                                    ng-click="addNum($index)">+
+                            </button>
+                        </div>
+                    </td>
+                    <td><span ng-bind="data.count*data.price1"></span></td>
+                    <td class="text_left">
+                        <p>
+                            <a href="javascript:;" ng-click="deleteCurrent($index,$event)">删除</a>
+                        </p>
+                        <p>
+                            <a href="javascript:;" ng-click="moveMyFavorites($index)">移至到我的收藏夹</a>
+                        </p>
+                    </td>
+                </tr>
+                </tbody>
+            </table>
+
+            <div class="foot clearfix">
+                <ul class="clearfix pull-left">
+
+                    <li>
+                        <label>
+                            <input type="checkbox"
+                                   ng-click="checkAll()"
+                                   ng-model="all"/> 全选
+                        </label>
+                    </li>
+                    <li>
+                <span class="set_cur" ng-click="deletePitchOn()">
+                    删除选中的产品
+                </span>
+                    </li>
+                    <li><span class="set_cur" ng-click="moveMyFWI()">移动到我的关注</span></li>
+                </ul>
+                <ul class="pull-right clearfix">
+                    <li class="pull-left">已选择<span ng-bind="TotalNum"></span>件商品</li>
+                    <li class="pull-left">
+                        总价（不含运费）：￥<span ng-bind="TotalPrice | number:2"></span>
+                    </li>
+                </ul>
+            </div>
+
+            <div class="sub">
+                <button type="submit" ng-click="settlement()">结算</button>
+            </div>
+        </div>
+
+        <div class="you_like">
+
+            <ul id="myTab" class="nav nav-tabs">
+                <li class="active">
+                    <a href="#yl" data-toggle="tab">猜你喜欢</a>
+                </li>
+                <li><a href="#xp" data-toggle="tab">新品推荐</a></li>
+                <li><a href="#gz" data-toggle="tab">我的关注</a></li>
+                <li><a href="#ll" data-toggle="tab">最近浏览</a></li>
+            </ul>
+
+            <div id="myTabContent" class="tab-content">
+
+                <div class="tab-pane fade in active" id="yl">
+                    <p>猜你喜欢</p>
+                </div>
+
+                <div class="tab-pane fade" id="xp">
+                    <p>新品推荐</p>
+                </div>
+
+                <div class="tab-pane fade" id="gz">
+                    <p>我的关注</p>
+                </div>
+
+                <div class="tab-pane fade" id="ll">
+                    <p>最近浏览</p>
+                </div>
+            </div>
+
+        </div>
+    </div>
+</div>
